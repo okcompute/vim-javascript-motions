@@ -1,5 +1,5 @@
-# vim-python-motions
-Vim motions specific to Python programming language
+# vim-javascript-motions
+Vim motions specific to Javascript programming language
 
 
 ## Supported motions
