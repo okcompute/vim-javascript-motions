@@ -4,9 +4,11 @@
 " Author: Pascal Lalancette (okcompute@icloud.com)
 
 " Patterns {{{
+let s:describe_pattern = '^\s*describe\s*(.*$'
+let s:it_pattern = '^\s*it\s*(.*$'
 let s:class_pattern = '^\s*\(export\)\=\s*class\s'
-let s:function_pattern = '^\s*\(export\)\=\s*\(function\)\=\s*\w\+\s*(.*)\s*{}\='
-let s:all_pattern = '\('.s:class_pattern.'\|'.s:function_pattern.'\)'
+let s:function_pattern = '^\s*\(\(if\|for\|switch\)\@!.\)*(.*)\s*{.*$'
+let s:all_pattern = '\('.s:class_pattern.'\|'.s:function_pattern.'\|'.s:describe_pattern.'\|'.s:it_pattern.'\)'
 " }}}
 
 " {{{
@@ -47,6 +49,13 @@ endfunction
 
 " {{{
 
+function! javascript#motions#move_to_describe(mode, direction)
+    call s:move_{a:mode}(s:describe_pattern, a:direction)
+endfunction
+
+function! javascript#motions#move_to_it(mode, direction)
+    call s:move_{a:mode}(s:it_pattern, a:direction)
+endfunction
 function! javascript#motions#move_to_class(mode, direction)
     call s:move_{a:mode}(s:class_pattern, a:direction)
 endfunction
