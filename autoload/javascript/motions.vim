@@ -25,7 +25,7 @@ function! s:move_normal(pattern, direction)
             let repeat = repeat - 1
         endif
     endwhile
-    call cursor(line)
+    call cursor(line, 0)
     " Open the fold if there is any
     try
         normal zo
@@ -41,7 +41,7 @@ function! s:move_visual(pattern, direction) range
     let end = s:move(a:pattern, a:direction)
     call cursor(a:firstline, 0)
     normal! v
-    call cursor(end)
+    call cursor(end, 0)
 endfunction
 
 " }}}
