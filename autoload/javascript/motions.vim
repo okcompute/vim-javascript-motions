@@ -5,7 +5,7 @@
 
 " Patterns {{{
 let s:describe_pattern = '^\s*describe\s*(.*$'
-let s:it_pattern = '^\s*it\s*(.*$'
+let s:it_pattern = '^\s*it\(\.only\)\{-\}\s*(.*$'
 let s:class_pattern = '^\s*\(export\)\=\s*class\s'
 let s:function_pattern = '^\s*\(\(if\|for\|switch\)\@!.\)*(.*)\s*{.*$'
 let s:all_pattern = '\('.s:class_pattern.'\|'.s:function_pattern.'\|'.s:describe_pattern.'\|'.s:it_pattern.'\)'
